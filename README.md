@@ -27,6 +27,12 @@ Cover font: [Gill Sans](tools/Gill-Sans-Font-Family.zip)
 
 - Geometry 计算几何（二维/三维）：fxz
 - DataStructure 数据结构（KDtree/LCT/…）：fxz
+  - KDTree
+  - LCT
+  - seg-beats 吉司机线段树
+  - fhq-treap
+  - hashmap
+  - lichao-tree 李超线段树
 - String 字符串：hhd
 - Graph 图论（tarjan/KM/霍尔定理）：zjb
 - NetworkFlow 网络流（算法+建模）：zjb
