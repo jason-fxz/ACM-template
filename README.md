@@ -26,6 +26,7 @@ Cover font: [Gill Sans](tools/Gill-Sans-Font-Family.zip)
 在 `src/src/` 中编写： 代码片段 `xxx.cpp`，公式/文字 `xxx.tex` （就按照 markdown 写就行）
 
 - Geometry 计算几何（二维/三维）：fxz
+  - 基本公式
 - DataStructure 数据结构（KDtree/LCT/…）：fxz
   - KDTree
   - LCT
@@ -35,6 +36,13 @@ Cover font: [Gill Sans](tools/Gill-Sans-Font-Family.zip)
   - lichao-tree 李超线段树
 - String 字符串：hhd
 - Graph 图论（tarjan/KM/霍尔定理）：zjb
+  - 2-SAT
+  - 极大团
+  - 图论知识
+  - 最小斯坦纳树
+  - k短路
+  - KM
+  - tarjan
 - NetworkFlow 网络流（算法+建模）：zjb
 - DP 动态规划（斜率优化/WQS/四边形）：zjb
 - Math / NumberTheory 数论：zjb

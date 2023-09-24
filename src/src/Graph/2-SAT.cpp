@@ -1,11 +1,11 @@
-#include<iostream>
-#include<cstdio>
-#include<cstring>
-#include<queue>
-#include<cmath>
-#include<vector>
-#include<algorithm>
-#include<cstdlib>
+#include <iostream>
+#include <cstdio>
+#include <cstring>
+#include <queue>
+#include <cmath>
+#include <vector>
+#include <algorithm>
+#include <cstdlib>
 using namespace std;
 int n,m,h[2000001],p,tot,t;
 int ans[2000001],cnt,bel[2000001],dfn[2000001],low[2000001],inz[2000001],z[2000001];
@@ -27,65 +27,65 @@ void tarjan(int x)
     inz[x]=1;
     for(int i=h[x];i;i=b[i].ne)
     {
-    	int v=b[i].to;
-    	if(!dfn[v])
-    	{
-    		tarjan(v);
-    		low[x]=min(low[x],low[v]);
-    	}
-    	else if(inz[v])
-    	{
-    		low[x]=min(low[x],dfn[v]);
-    	}
+        int v=b[i].to;
+        if(!dfn[v])
+        {
+            tarjan(v);
+            low[x]=min(low[x],low[v]);
+        }
+        else if(inz[v])
+        {
+            low[x]=min(low[x],dfn[v]);
+        }
     }
     if(dfn[x]==low[x])
     {
-    	tot++;
-    	do
-    	{
-    		bel[z[t]]=tot;
-    		inz[z[t]]=0;
-    	}while(z[t--]!=x);
+        tot++;
+        do
+        {
+            bel[z[t]]=tot;
+            inz[z[t]]=0;
+        }while(z[t--]!=x);
     }
 }
 bool solve()
 {
-	int i;
+    int i;
     for(i=1;i<=2*n;i++)
     {
-    	if(!dfn[i])
-    	tarjan(i);
+        if(!dfn[i])
+        tarjan(i);
     }
     for(i=1;i<=n;i++)
     {
-    	if(bel[i]==bel[i+n])
-    	{
-    		return 0;
-    	}
+        if(bel[i]==bel[i+n])
+        {
+            return 0;
+        }
     }
     return 1;
 }
 int main()
 {
-	int i;
+    int i;
     scanf("%d%d",&n,&m);
-		p=0;
-		for(i=1;i<=m;i++)
-		{
-			int xx,yy,x,y;
-			scanf("%d%d%d%d",&xx,&x,&yy,&y);
-			add(xx+(x^1)*n,yy+y*n);
-			add(yy+(y^1)*n,xx+x*n);
-		}
+        p=0;
+        for(i=1;i<=m;i++)
+        {
+            int xx,yy,x,y;
+            scanf("%d%d%d%d",&xx,&x,&yy,&y);
+            add(xx+(x^1)*n,yy+y*n);
+            add(yy+(y^1)*n,xx+x*n);
+        }
         if(solve())
         {
             printf("POSSIBLE\n");
             for(int i=1;i<=n;i++)
             {
-            	if(bel[i]<bel[i+n])
-            	printf("0 ");
-            	else
-            	printf("1 ");
+                if(bel[i]<bel[i+n])
+                printf("0 ");
+                else
+                printf("1 ");
             }
         }
         else
