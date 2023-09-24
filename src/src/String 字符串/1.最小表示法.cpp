@@ -1,4 +1,4 @@
-//nÎª´®³¤£¬aÏÂ±ê´Ó0¿ªÊ¼ 
+//nä¸ºä¸²é•¿ï¼Œaä¸‹æ ‡ä»Ž0å¼€å§‹ 
 int Min_show(int *a, int n) {
     int i = 0, j = 1, k = 0;
     while (i < n && j < n && k < n) {
