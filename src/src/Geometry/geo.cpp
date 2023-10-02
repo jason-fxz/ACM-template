@@ -10,7 +10,7 @@ struct vec {
 };
 struct line { vec s, t; }
 bool turn_left(cp a, cp b, cp c) {
-	return sgn (crs (b - a, c - a)) >= 0; }
+	return sgn(crs (b - a, c - a)) >= 0; }
 bool point_on_segment(cp a, cl b) { // 点在线段上
     return sgn(crs(a - b.s, b.t - b.s)) == 0  // 在直线上
            && sgn(dot(b.s - a, b.t - a)) <= 0; }
