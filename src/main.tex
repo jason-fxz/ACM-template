@@ -19,12 +19,14 @@
 \usepackage[colorlinks, linkcolor = black]{hyperref}
 \usepackage[table]{xcolor}
 \usepackage{tabularx}
+\usepackage{background}
+\SetBgContents{}
 % configure fonts
 % if not using CJK
 % \newfontfamily\substitutefont{SimSun}[Scale=0.8,BoldFont=SimHei]
 % \setTransitionsForChinese{\begingroup\substitutefont}{\endgroup}
 \usepackage{xeCJK}
-\setCJKmainfont{STFangsong}[Scale=0.8]
+\setCJKmainfont{NSimSun}[Scale=0.8]
 \setCJKmonofont{SimHei}[Scale=0.8]
 \setCJKsansfont{KaiTi}[Scale=0.8]
 
@@ -192,7 +194,7 @@
 %THE SCL BEGINS
 \begin{document}
 	\begin{titlepage}
-		% \input{cover/cover.tex}
+		\input{cover/cover.tex}
 	\end{titlepage}
 	\begin{multicols}{2}
 		\setcounter{tocdepth}{3}
@@ -236,6 +238,10 @@
 					\inputminted{cpp}{src/Graph/tarjan.cpp}
 				\subsection{最小斯坦纳树}
 					\inputminted{cpp}{src/Graph/最小斯坦纳树.cpp}
+				\subsection{欧拉回路}
+					\inputminted{cpp}{src/Graph/欧拉回路.cpp}
+				\subsection{树哈希}	
+					\input{src/Graph/treehash.tex}
 			\newpage
 			\section{Data Structure}
 				\subsection{LCT 动态树}
@@ -284,6 +290,56 @@
 					\inputminted{cpp}{src/Math Polynomial/任意模数多项式乘法.cpp}
 				\subsection{多项式全家桶}
 					\inputminted{cpp}{src/Math Polynomial/poly.cpp}
+			\section{Combinatorics}
+				\subsection{lucas \& exlucas}
+					\inputminted{cpp}{src/Math Combinatorics/exlucas.cpp}
+				\subsection{gauss}
+					\inputminted{cpp}{src/Math Combinatorics/gauss.cpp}
+				\subsection{exgcd}
+					\inputminted{cpp}{src/Math Combinatorics/exgcd.cpp}
+				\subsection{CRT \& EXCRT} 
+					\inputminted{cpp}{src/Math Combinatorics/CRT.cpp}
+
+			\section{Appendix}
+				\begin{spacing}{0.5}
+				% \subsection{Formulas 公式表}
+				% 	\input{src/TipsandHints/appendix-Formula.tex}
+				\subsection{Calculus Table 导数表}
+					\input{src/TipsandHints/CalculusTable.tex}
+				\subsection{Integration Table 积分表}
+					\input{src/TipsandHints/IntegrationTable_NewMeta.tex}
+				\end{spacing}
+			\section{Miscellany}
+				\subsection{Zeller 日期公式}
+					\inputminted{cpp}{src/Miscellany/日期公式.cpp}
+				% \subsection{DP 优化}
+				% \subsubsection{四边形不等式}
+				% 	\inputminted{cpp}{src/Miscellany/2D1D.cpp}
+				% 	\input{src/tbr/树形背包优化.tex}
+				%\subsection{Dancing Links 精确覆盖搜索}
+				%\inputminted{cpp}{src/Miscellany/DLX.cpp}
+				% \subsection{Hash Table}
+				% 	\inputminted{cpp}{src/DataStructure/hashmap.cpp}
+				\subsection{基数排序}
+					\inputminted{cpp}{src/Miscellany/RadixSort.cpp}
+				\subsection{O3 与读入优化}
+					\inputminted{cpp}{src/Miscellany/hack.cpp}
+				\subsection{试机赛与纪律文件}
+				\begin{spacing}{0.5}
+					\input{src/TipsandHints/discipline.tex}
+				\end{spacing}
+				\subsection{Constant Table 常数表}
+				\label{randomprimes}
+				\begin{small}
+					\setlength{\parindent}{0em}\setlength{\parskip}{0em}\renewcommand{\baselinestretch}{.8}
+					\texttt{\input{|"python src/Miscellany/randomprimes.py"}}
+				\end{small}
+				\input{src/TipsandHints/Addon.tex}
+				\subsection*{Vimrc, Bashrc}
+				\inputminted{vim}{src/Miscellany/vimrc}
+				\inputminted{sh}{src/Miscellany/bashrc}
+					
+					
 		\begin{comment}
 				\newpage
 			\subsection*{Java Example}

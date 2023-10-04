@@ -11,9 +11,9 @@ void decode(char *s, int len, int mask) {
 }
 int q, n, len;
 char s[M], t[M];
-// 顺序加入，查询时将询问串翻转
-// 以i结束的前缀，对应节点的编号为i
-// 注意：不能写懒惰删除，否则可能会破坏树的结构
+// 椤哄簭鍔犲叆锛屾煡璇㈡椂灏嗚闂覆缈昏浆
+// 浠缁撴潫鐨勫墠缂�锛屽搴旇妭鐐圭殑缂栧彿涓篿
+// 娉ㄦ剰锛氫笉鑳藉啓鎳掓儼鍒犻櫎锛屽惁鍒欏彲鑳戒細鐮村潖鏍戠殑缁撴瀯
 const double alpha = 0.75;
 int rt, sz[M], ls[M], rs[M];
 double tag[M];

@@ -1,11 +1,11 @@
 \subsubsection{树链的交}
-%	假设两条链$(a_1, b_1), (a_2, b_2)$的lca分别为$c_1, c_2$.
-%	再求出$(a_1, a_2), (a_1, b_2), (b_1, a_2), (b_1, b_2)$的lca,
-%	记为$d_1, d_2, d_3, d_4$.
-%	将$(d_1, d_2, d_3, d_4)$按照深度从小到大排序,
-%	$(c_1,c_2)$也从小到大排序.
-%	两条链有交当且仅当$dep[c_1] \leq dep[d_1]$且$dep[c_2] \leq dep[d_3]$,
-%	则$(d_3, d_4)$是链交的两个端点.
+	假设两条链$(a_1, b_1), (a_2, b_2)$的lca分别为$c_1, c_2$.
+	再求出$(a_1, a_2), (a_1, b_2), (b_1, a_2), (b_1, b_2)$的lca,
+	记为$d_1, d_2, d_3, d_4$.
+	将$(d_1, d_2, d_3, d_4)$按照深度从小到大排序,
+	$(c_1,c_2)$也从小到大排序.
+	两条链有交当且仅当$dep[c_1] \leq dep[d_1]$且$dep[c_2] \leq dep[d_3]$,
+	则$(d_3, d_4)$是链交的两个端点.
 % \inputminted{cpp}{src/yzh/path_inter.cpp}
 
 \subsubsection{带修改MST}
@@ -78,11 +78,11 @@ $x_r - x_l \geq c:$\texttt{add(r, l, -c)}
 \end{comment}
 \begin{comment}
 \subsubsection{割点于割边}
-        \paragraph{割点 割边} 一个点$u$是割点, 当且仅当: 1. $u$为非树根且有树边$(u,v)$满足$dfn_u\leq low_v$; 2. u为树根且有多于一个的子树. 一条无向边$(u,v)$是桥, 当且仅当$(u,v)$是树边, 且满足$dfn_u<low_v$. 
+\paragraph{割点 割边} 一个点$u$是割点, 当且仅当: 1. $u$为非树根且有树边$(u,v)$满足$dfn_u\leq low_v$; 2. u为树根且有多于一个的子树. 一条无向边$(u,v)$是桥, 当且仅当$(u,v)$是树边, 且满足$dfn_u<low_v$. 
+\end{comment}
 
 \subsubsection{2-SAT}
     如果选$A$就必须选$B$就从$A$向$B$连一条边, 如果两个只能选一个的条件在同一个强连通分量中就不合法. 输出可行方案可以比较$X$和$X’$的$bl$的大小, 大的选$X’$. 建图优化一般考虑前后缀的合并. 
-\end{comment}
 \subsubsection{三元环}\
                对于无向边$(u,v)$, 如果$\mathrm{deg}_u<\mathrm{deg}_v$, 那么连有向边$(u,v)$(以点标号为第二关键字). 枚举$x$ 暴力即可.时间复杂度$O(m\sqrt{m})$. 
 \subsubsection{图同构}
