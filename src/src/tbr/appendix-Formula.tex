@@ -1,0 +1,384 @@
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\setlength\tabcolsep{1pt}
+\renewcommand{\arraystretch}{1.6}
+\def \bangle{ \atopwithdelims \langle \rangle}
+\providecommand{\myfloor}[1]{ \left\lfloor #1 \right\rfloor }
+\begin{footnotesize}
+
+\begin{minipage}[t]{0.58\linewidth}
+\subsubsection{Mobius Inversion}
+    \[F(n)=\sum_{d|n}f(d)\Rightarrow f(n)=\sum_{d|n}\mu(d)F\left(\frac{n}{d}\right)\]
+    \[F(n)=\sum_{n|d}f(d)\Rightarrow f(n)=\sum_{n|d}\mu\left(\frac{d}{n}\right)F(d)\]
+    \[[x = 1] = \sum_{d|x}\mu(d),\ \ x = \sum_{d|x}\mu(d)\]
+    
+\subsubsection{降幂公式}
+
+$$ a^k \equiv a ^ {k \bmod \varphi(p) + \varphi(p)},\; k \ge \varphi(p) $$
+
+\subsubsection{其他常用公式}
+	$$\sum_{i = 1} ^ n \left[(i, n) = 1\right] i = n \frac {\varphi(n) + e(n)} 2$$
+	$$\sum_{i = 1} ^ n \sum_{j = 1} ^ i \left[(i, j) = d\right] = S_\varphi \left( \left\lfloor \frac n d \right\rfloor \right)$$
+	$$\sum_{i = 1} ^ n \sum_{j = 1} ^ m \left[(i, j) = d\right] = \sum_{d | k} \mu\left( \frac k d \right) \left\lfloor \frac n k \right\rfloor \left\lfloor \frac m k \right\rfloor$$
+	$$ \sum_{i = 1} ^ n f(i) \sum_{j = 1} ^ {\left\lfloor \frac n i \right\rfloor} g(j) = \sum_{i = 1} ^ n g(i) \sum_{j = 1} ^ {\left\lfloor \frac n i \right\rfloor} f(j) $$
+\end{minipage}
+\begin{minipage}[t]{0.42\linewidth}
+\subsubsection{单位根反演}
+\input{src/Math/单位根反演.tex}
+\end{minipage}
+
+\subsubsection{Arithmetic Function}
+\[(p-1)!\equiv-1(mod\ p)\]
+\[a>1,m,n>0 \text{, then} \gcd(a^m-1,a^n-1)=a^{\gcd(n,m)}-1\]
+\[ \mu^2(n) = \sum_{d^2 \mid n} \mu (d) \]
+\[a>b,\gcd(a,b)=1 \text{, then} \gcd(a^m-b^m,a^n-b^n)=a^{\gcd(m,n)}-b^{\gcd(m,n)}\]
+\[ \prod_{k=1,gcd(k, m) = 1}^{m} k \equiv \left\{
+\begin{aligned}
+&-1 & \mod\ m,\ & m = 4, p^q, 2p^q \\
+&1 & \mod\ m,\ & \text{otherwise} \\
+\end{aligned}
+\right.
+\]
+\[ \sigma_k(n) = \sum_{d|n}d^k = \prod_{i=1}^{\omega(n)}\frac{p_i^{(a_i+1)k}-1}
+{p_i^k-1} \]
+\[ J_k(n) = n^k\prod_{p|n}(1-\frac{1}{p^k}) \]
+$J_k(n)$ is the number of $k$-tuples of positive integers all less than or equal to n that form a coprime $(k + 1)$-tuple together with $n$.
+\[ \sum_{\delta|n}J_k(\delta) = n^k \]
+\[ \sum_{i=1}^{n} \sum_{j=1}^{n} [gcd(i,j)=1]ij =  \sum_{i=1}^{n} i^2\varphi(i) \]
+\[ \sum_{\delta|n}\delta^sJ_r(\delta)J_s(\frac{n}{\delta}) = J_{r+s}(n) \]
+\begin{align*}
+\sum_{\delta|n}\varphi(\delta)d\left(\frac{n}{\delta}\right) = \sigma(n),&\ \sum_{\delta|n}\left| \mu(\delta) \right| = 2^{\omega(n)} \\
+\sum_{\delta|n}2^{\omega(\delta)} = d(n^2),&\ \sum_{\delta|n}d(\delta^2) = d^2(n) \\
+\sum_{\delta|n}d\left(\frac{n}{\delta}\right)2^{\omega(\delta)} = d^2(n),&\ \sum_{\delta|n}\frac{\mu(\delta)}{\delta} = \frac{\varphi(n)}{n} \\
+\sum_{\delta|n}\frac{\mu(\delta)}{\varphi(\delta)} = d(n),&\ \sum_{\delta|n}\frac{\mu^2(\delta)}{\varphi(\delta)} = \frac{n}{\varphi(n)} \\
+\end{align*}
+\[ n|\varphi(a^n-1) \]
+\[ \sum_{\substack{1 \leq k \leq n \\ \gcd(k, n) = 1}}f(\gcd(k-1, n)) = \varphi(n)
+\sum_{d|n}\frac{(\mu*f)(d)}{\varphi(d)} \]
+\[ \varphi(\mathrm{lcm}(m, n))\varphi(\gcd(m,n)) = \varphi(m)\varphi(n) \]
+\[ \sum_{\delta|n}d^3(\delta) = (\sum_{\delta|n}d(\delta))^2 \]
+\[ d(uv) = \sum_{\delta|\gcd(u, v)}\mu(\delta)d(\frac{u}{\delta})d(\frac{v}{\delta}) \]
+\[ \sigma_k(u)\sigma_k(v) = \sum_{\delta|\gcd(u, v)}\delta^k\sigma_k(\frac{uv}{\delta^2}) \]
+\[ \mu(n) = \sum_{k=1}^n[\gcd(k, n)=1]\cos{2\pi \frac{k}{n}} \]
+\[ \varphi(n) = \sum_{k=1}^n[\gcd(k, n)=1] = \sum_{k=1}^n\gcd(k, n)\cos{2\pi \frac{k}{n}} \]
+\[
+\left\{
+\begin{aligned}
+&S(n) = \sum_{k=1}^n(f \ast g)(k) \\
+&\sum_{k=1}^nS(\lfloor \frac n k \rfloor) = \sum_{i=1}^nf(i)\sum_{j=1}^{\lfloor \frac n i \rfloor}(g \ast 1)(j)
+\end{aligned}
+\right.
+\]
+\[
+\left\{
+\begin{aligned}
+&S(n) = \sum_{k=1}^n(f \cdot g)(k), g \text{ completely multiplicative} \\
+&\sum_{k=1}^nS\left(\left\lfloor \frac n k \right\rfloor\right)g(k) = \sum_{k=1}^n(f \ast 1)(k)g(k)
+\end{aligned}
+\right.
+\]
+\subsubsection{Binomial Coefficients}
+\begin{multicols*}{2}
+\begin{scriptsize}
+\begin{tabular}{|P{0.2cm}|P{0.3cm}|P{0.3cm}|P{0.3cm}|P{0.3cm}|P{0.3cm}|P{0.3cm}|P{0.3cm}|P{0.3cm}|P{0.3cm}|P{0.3cm}|P{0.3cm}|}
+    \hline
+    C & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+    \hline
+    0 & \cellcolor{black!20}1 &  &  &  &  &  &  &  &  &  & \\
+    \hline
+    1 & \cellcolor{black!20}1 & \cellcolor{black!20}1 &  &  &  &  &  &  &  &  & \\
+    \hline
+    2 & \cellcolor{black!20}1 & \cellcolor{black!0}2 & \cellcolor{black!20}1 &  &  &  &  &  &  &  & \\
+    \hline
+    3 & \cellcolor{black!20}1 & \cellcolor{black!20}3 & \cellcolor{black!20}3 & \cellcolor{black!20}1 &  &  &  &  &  &  & \\
+    \hline
+    4 & \cellcolor{black!20}1 & \cellcolor{black!0}4 & \cellcolor{black!0}6 & \cellcolor{black!0}4 & \cellcolor{black!20}1 &  &  &  &  &  & \\
+    \hline
+    5 & \cellcolor{black!20}1 & \cellcolor{black!20}5 & \cellcolor{black!0}10 & \cellcolor{black!0}10 & \cellcolor{black!20}5 & \cellcolor{black!20}1 &  &  &  &  & \\
+    \hline
+    6 & \cellcolor{black!20}1 & \cellcolor{black!0}6 & \cellcolor{black!20}15 & \cellcolor{black!0}20 & \cellcolor{black!20}15 & \cellcolor{black!0}6 & \cellcolor{black!20}1 &  &  &  & \\
+    \hline
+    7 & \cellcolor{black!20}1 & \cellcolor{black!20}7 & \cellcolor{black!20}21 & \cellcolor{black!20}35 & \cellcolor{black!20}35 & \cellcolor{black!20}21 & \cellcolor{black!20}7 & \cellcolor{black!20}1 &  &  & \\
+    \hline
+    8 & \cellcolor{black!20}1 & \cellcolor{black!0}8 & \cellcolor{black!0}28 & \cellcolor{black!0}56 & \cellcolor{black!0}70 & \cellcolor{black!0}56 & \cellcolor{black!0}28 & \cellcolor{black!0}8 & \cellcolor{black!20}1 &  & \\
+    \hline
+    9 & \cellcolor{black!20}1 & \cellcolor{black!20}9 & \cellcolor{black!0}36 & \cellcolor{black!0}84 & \cellcolor{black!0}126 & \cellcolor{black!0}126 & \cellcolor{black!0}84 & \cellcolor{black!0}36 & \cellcolor{black!20}9 & \cellcolor{black!20}1 & \\
+    \hline
+    10 & \cellcolor{black!20}1 & \cellcolor{black!0}10 & \cellcolor{black!20}45 & \cellcolor{black!0}120 & \cellcolor{black!0}210 & \cellcolor{black!0}252 & \cellcolor{black!0}210 & \cellcolor{black!0}120 & \cellcolor{black!20}45 & \cellcolor{black!0}10 & \cellcolor{black!20}1\\
+    \hline
+\end{tabular}
+\end{scriptsize}
+\[ {n \choose k} \equiv [n\& k=k] \pmod 2 \]
+\[ \sum_{k=0}^n{k \choose m} = {n+1 \choose m+1} \]
+\[ \sqrt{1+z} = 1 + \sum_{k=1}^{\infty}\frac{(-1)^{k-1}}{k\times2^{2k-1}}{2k-2 \choose k-1}z^k \]
+\[ \sum_{k=0}^{r}{r-k \choose m}{s+k \choose n} = {r+s+1 \choose m+n+1} \]
+\[ C_{n, m} = {n+m \choose m} - {n+m \choose m-1}, n \geq m \]
+\end{multicols*}
+\[ {n \choose k} = (-1)^k{k-n-1 \choose k},\ \ \sum_{k \leq n}{r+k \choose k} = {r+n+1 \choose n} \]
+\[ {{n_1+\cdots+n_p}\choose m}=\sum_{k_1+\cdots+k_p=m}{n_1\choose k_1}\cdots{n_p\choose k_p}\]
+\subsubsection{Fibonacci Numbers, Lucas Numbers}
+\[ F(z) = \frac{z}{1-z-z^2} \]
+\[ \hat{\phi} = \frac{1-\sqrt{5}}{2} \]
+\[ \sum_{k=1}^nf_k = f_{n+2}-1,\ \ \sum_{k=1}^nf^2_k = f_nf_{n+1} \]
+\[ \sum_{k=0}^nf_kf_{n-k} = \frac{1}{5}(n-1)f_n+\frac{2}{5}nf_{n-1} \]
+\[ \frac{f_{2n}}{f_n} = f_{n-1} + f_{n+1}\]
+\[ f_1+2f_2+3f_3+\cdots+nf_n=nf_{n+2}-f_{n+3}+2\]
+\[ \gcd(f_m,f_n)=f_{\gcd(m,n)}\]
+\[ f^2_n + (-1)^n = f_{n+1}f_{n-1} \]
+\[ f_{n+k} = f_nf_{k+1} + f_{n-1}f_k \]
+\[ f_{2n+1} = f^2_n+f^2_{n+1} \]
+\[ (-1)^kf_{n-k} = f_{n}f_{k-1} - f_{n-1}f_{k} \]
+\[ \text{Modulo }f_n, f_{mn+r} \equiv \left\{
+\begin{aligned}
+&f_r,& m \bmod 4 = 0; \\
+&(-1)^{r+1}f_{n-r},& m \bmod 4 = 1; \\
+&(-1)^nf_r,& m \bmod 4 = 2; \\
+&(-1)^{r+1+n}f_{n-r},& m \bmod 4 = 3.
+\end{aligned}
+\right.
+\]
+\end{footnotesize}
+
+\inputminted{python}{src/tbr/fib.py}
+
+\begin{small}
+\[ L_0=2,L_1=1,L_n=L_{n-1}+L_{n-2}=(\frac{1+\sqrt{5}}{2})^n+(\frac{1-\sqrt{5}}{2})^n \]
+\[ L(x)=\frac{2-x}{1-x-x^2} \]
+除了$n=0,4,8,16$,$L_n$是素数,则$n$是素数.
+
+$$\phi = \frac {1 + \sqrt 5} 2, \; \hat\phi = \frac {1 - \sqrt 5} 2$$
+
+$$F_n = \frac {\phi^n - {\hat\phi} ^ n} {\sqrt 5}, \; L_n = \phi ^ n + {\hat\phi} ^ n$$
+
+$$\frac {L_n + F_n \sqrt 5} 2 = \left( \frac {1 + \sqrt 5} 2 \right) ^ n$$
+
+\subsubsection{Sum of Powers}
+\[\sum_{i=1}^ni^2=\frac{n(n+1)(2n+1)}{6},\ \ \sum_{i=1}^ni^3=\left(\frac{n(n+1)}{2}\right)^2\]
+\[\sum_{i=1}^ni^4=\frac{n(n+1)(2n+1)(3n^2+3n-1)}{30}\]
+\[\sum_{i=1}^ni^5=\frac{n^2(n+1)^2(2n^2+2n-1)}{12}\]
+
+\subsubsection{Catalan Numbers 1, 1, 2, 5, 14, 42, 132, 429, 1430\dots}
+\[c_{0}=1,c_n=\sum_{i=0}^{n-1}c_ic_{n-1-i}=c_{n-1}\frac{4n-2}{n+1}=\frac{\binom{2n}{n}}{n+1}=\binom{2n}{n}-\binom{2n}{n-1}\]
+\[ c(x)=\frac{1-\sqrt{1-4x}}{2x}\]
+Usage: $n$对括号序列; $n$个点满二叉树; $n\times n$的方格左下到右上不过对角线方案数; 凸$n+2$边形三角形分割数; $n$个数的出栈方案数; $2n$个顶点连接, 线段两两不交的方案数.
+\paragraph*{类卡特兰数}
+从 $(1,1)$ 出发走到 $(n,m)$,只能向右或者向上走,不能越过 $y=x$ 这条线(即保证 $x\geq y$ ),合法方案数是 $C_{n+m-2}^{n} - C_{n+m-2}^{n-1}$.
+\subsubsection{Motzkin Numbers 1, 1, 2, 4, 9, 21, 51, 127, 323, 835\dots}
+圆上$n$点间画不相交弦的方案数. 选$n$个数$k_1,k_2,...,k_n\in\{-1,0,1\}$, 保证$\sum_i^ak_i(1\leq a\leq n)$非负且所有数总和为$0$的方案数. \[M_{n+1}=M_n+\sum_i^{n-1}M_iM_{n-1-i}=\frac{(2n+3)M_n+3nM_{n-1}}{n+3}\]
+\[M_n=\sum_{i=0}^{\lfloor \frac{n}{2}\rfloor}\binom{n}{2k} \mathrm{Catlan}(k)\]
+\[M(X)=\frac{1-x-\sqrt{1-2x-3x^2}}{2x^2}\]
+\subsubsection{Derangement 错排数 0, 1, 2, 9, 44, 265, 1854, 14833\dots}
+\[D_1=0,D_2=1,D_n=n!(\frac{1}{0!}-\frac{1}{1!}+\frac{1}{2!}-\frac{1}{3!}+...+\frac{(-1)^n}{n!})\]
+\[D_n=(n-1)(D_{n-1}+D_{n-2})\]
+\subsubsection{Bell Numbers 1, 1, 2, 5, 15, 52, 203, 877, 4140 \dots}
+$n$个元素集合划分的方案数.
+\[ B_n=\sum_{k=1}^{n}{n\brace k},\ \ B_{n+1} = \sum_{k=0}^n{n \choose k}B_k \]
+\[ B_{p^m+n} \equiv mB_n+B_{n+1} \pmod{p} \]
+\[B(x)=\sum_{n=0}^{\infty}\frac{B_n}{n!}x^n=\mathrm{e}^{\mathrm{e}^x-1}\]
+\subsubsection{Stirling Numbers}
+\paragraph*{第一类} $n$个元素集合分作$k$个\textbf{非空轮换}方案数.
+\begin{multicols*}{2}
+$$\begin{aligned}
+{n+1 \brack k} =& n{n \brack k} + {n \brack k-1} \\
+s(n,k) &=(-1)^{n-k}{n \brack k}
+\end{aligned}$$
+\begin{tabular}{|P{0.39cm}|P{0.39cm}|P{0.45cm}|P{0.57cm}|P{0.57cm}|P{0.45cm}|P{0.39cm}|P{0.39cm}|}
+    \hline
+    n\textbackslash k & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\
+    \hline
+    0 & 1 &  &  &  &  &  &  \\
+    \hline
+    1 & 0 & 1 &  &  &  &  &  \\
+    \hline
+    2 & 0 & 1 & 1 &  &  &  &  \\
+    \hline
+    3 & 0 & 2 & 3 & 1 &  &  &  \\
+    \hline
+    4 & 0 & 6 & 11 & 6 & 1 &  &  \\
+    \hline
+    5 & 0 & 24 & 50 & 35 & 10 & 1 &  \\
+    \hline
+    6 & 0 & 120 & 274 & 225 & 85 & 15 & 1 \\
+    \hline
+    7 & 0 & 720 & 1764 & 1624 & 735 & 175 & 21 \\
+    \hline
+\end{tabular}
+
+$$\begin{aligned}
+    {n+1 \brack 2} &= n!H_n \text{ (see \ref{section:Harmonic})} \\
+    x^{\underline{n}} &= \sum_k{ {n \brack k}(-1)^{n-k}x^k } \\
+    x^{\overline{n}} &= \sum_k{ {n \brack k}x^k }
+\end{aligned}$$
+
+For fixed $k$, EGF:
+
+$$\begin{aligned}
+    \sum_{n = 0} ^ \infty {n \brack k} \frac {x ^ n} {n!} &= \frac {x ^ k} {k!} \left( \frac {\ln (1 - x)} x \right) ^ k
+\end{aligned}$$
+\end{multicols*}
+
+\paragraph*{第二类} 把$n$个元素集合分作$k$个\textbf{非空子集}方案数.
+
+\begin{multicols*}{2}
+$$\begin{aligned}
+{n+1 \brace k} &= k{n \brace k} + {n \brace k-1} \\
+m!{n \brace m} &= \sum_k{m \choose k}k^n(-1)^{m-k}
+\end{aligned}$$
+\begin{tabular}{|P{0.39cm}|P{0.39cm}|P{0.39cm}|P{0.39cm}|P{0.45cm}|P{0.45cm}|P{0.45cm}|P{0.39cm}|}
+    \hline
+    n\textbackslash k & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\
+    \hline
+    0 & 1 &  &  &  &  &  &  \\
+    \hline
+    1 & 0 & 1 &  &  &  &  &  \\
+    \hline
+    2 & 0 & 1 & 1 &  &  &  &  \\
+    \hline
+    3 & 0 & 1 & 3 & 1 &  &  &  \\
+    \hline
+    4 & 0 & 1 & 7 & 6 & 1 &  &  \\
+    \hline
+    5 & 0 & 1 & 15 & 25 & 10 & 1 &  \\
+    \hline
+    6 & 0 & 1 & 31 & 90 & 65 & 15 & 1 \\
+    \hline
+    7 & 0 & 1 & 63 & 301 & 350 & 140 & 21 \\
+    \hline
+\end{tabular}
+\columnbreak
+$$\begin{aligned}
+    x^n &= \sum_k{ {n \brace k}x^{\underline{k}} } \\
+    &= \sum_k{ {n \brace k}(-1)^{n-k}x^{\overline{k}} } 
+\end{aligned}$$
+For fixed $k$, EGF and OGF:
+$$\begin{aligned}
+\sum_{n = 0} ^ \infty {n \brace k} \frac {x ^ n} {n!} &= \frac {x ^ k} {k!} \left( \frac {e ^ x - 1} x \right) ^ k \\
+\sum_{n = 0} ^ \infty {n \brace k} x ^ n &= x ^ k \prod_{i = 1} ^ k (1 - i x) ^ {-1}
+\end{aligned}$$
+\end{multicols*}
+\subsubsection{Eulerian Numbers}
+\begin{multicols*}{2}
+    \begin{tabular}{|P{0.5cm}|P{0.3cm}|P{0.5cm}|P{0.57cm}|P{0.57cm}|P{0.57cm}|P{0.5cm}|P{0.3cm}|}
+        \hline
+        n\textbackslash k & 0 & 1 & 2 & 3 & 4 & 5 & 6\\
+        \hline
+        1 & 1 &  &  &  &  &  & \\
+        \hline
+        2 & 1 & 1 &  &  &  &  & \\
+        \hline
+        3 & 1 & 4 & 1 &  &  &  & \\
+        \hline
+        4 & 1 & 11 & 11 & 1 &  &  & \\
+        \hline
+        5 & 1 & 26 & 66 & 26 & 1 &  & \\
+        \hline
+        6 & 1 & 57 & 302 & 302 & 57 & 1 & \\
+        \hline
+        7 & 1 & 120 & 1191 & 2416 & 1191 & 120 & 1\\
+        \hline
+    \end{tabular}
+    \columnbreak
+        \[ {n \bangle k} = (k+1){n-1 \bangle k} + (n-k){n-1 \bangle k-1} \]
+        \[ x^n = \sum_k{ {n \bangle k}{x+k \choose n} } \]
+        \[ {n \bangle m} = \sum_{k=0}^m{n+1 \choose k}(m+1-k)^n(-1)^k \]
+\end{multicols*}
+\subsubsection{Harmonic Numbers, 1, 3/2, 11/6, 25/12, 137/60 \dots}
+\label{section:Harmonic}
+\[ H_n = \sum_{k=1}^n \frac{1}{k}, \sum_{k=1}^nH_k = (n+1)H_n-n \]
+\[ \sum_{k=1}^nkH_k = \frac{n(n+1)}{2}H_n - \frac{n(n-1)}{4} \]
+\[ \sum_{k=1}^n{k \choose m}H_k = {n+1 \choose m+1}(H_{n+1} - \frac{1}{m+1}) \]
+
+\subsubsection{卡迈克尔函数}
+卡迈克尔函数表示模$m$剩余系下最大的阶, 即 $\lambda(m)=\max_{a\bot m} \delta_m(a)$. 容易看出, 若$\lambda(m)=\varphi(m)$, 则$m$存在原根. 该函数可由下述方法计算: 分解质因数$m=p_1^{\alpha_1}p_2^{\alpha_2}...p_t^{\alpha_t}$. 则$\lambda(m)=\operatorname{lcm}(\lambda(p_1^{\alpha_1}),p_2^{\alpha_2},\ ..., p_t^{\alpha_t})$. 其中对奇质数$p$, $\lambda(p^\alpha)=(p-1)p^{\alpha-1}$. 对2的幂, $\lambda(2^k)=2^{k-2}, s.t. k\ge 3$. $\lambda(4)=\lambda(2)=2$.
+
+\subsubsection{五边形数定理求拆分数}
+\[ \Phi(x) = \prod_{n=1}^{\infty}(1-x^n) = \sum_{n=-\infty}^{\infty}{(-1)^kx^{k(3k-1)/2}} \]
+记$p(n)$表示$n$的拆分数,$f(n,k)$表示将$n$拆分且每种数字使用次数必须小于$k$的拆分数.则
+\[ P(x)\Phi(x)=1, F(x^k)\Phi(x)=1\]
+暴力拆开卷积,可以得到将1,-1,2,-2...带入五边形数$(-1)^kx^{k(3k-1)/2}$中,由于小于n的五边形数只有$\sqrt{n}$个,可以$O(n\sqrt{n})$计算答案:
+\[ p(n) = p(n-1)+p(n-2)-p(n-5)-p(n-7)+\cdots \]
+\[ f(n, k) = p(n)-p(n-k)-p(n-2k)+p(n-5k)+p(n-7k)-\cdots \]
+\subsubsection{Bernoulli Numbers 1, 1/2, 1/6, 0, -1/30, 0, 1/42 \dots}
+
+$$\begin{aligned}B(x)=\sum_{i\ge 0}\frac{B_i x^i}{i!}=\frac x{e^x-1}\end{aligned}$$
+
+$$ \begin{aligned}B_n=[n=0]-\sum_{i=0}^{n-1}{n\choose i}\frac{B_i}{n-k+1}, \sum_{i=0}^n{n+1\choose i}B_i=0\end{aligned} $$
+
+$$ \begin{aligned}S_n(m)=\sum_{i=0}^{m-1}i^n=\sum_{i=0}^n{n\choose i}B_{n-i}\frac{m^{i+1}}{i+1}\end{aligned} $$
+
+$ B_0 = 1,\; B_1 = -\frac 1 2,\; B_4 = -\frac 1 {30},\; B_6 = \frac 1 {42},\; B_8 = -\frac 1{30},\; \dots$.
+
+(除了$B_1 = -\frac 1 2$以外, 伯努利数的奇数项都是$0$.)
+
+自然数幂次和关于次数的EGF:
+$$ \begin{aligned} F(x)=&\sum_{k=0}^\infty \frac{\sum_{i=0}^n i^k}{k!}x^k\\ =&\sum_{i=0}^n e^{ix} =&\frac{e^{(n+1)x-1}}{e^x-1} \end{aligned} $$
+
+\subsubsection{kMAX-MIN反演}
+\[k \mathrm{MAX}(S)=\sum_{T\subset S, T\neq \emptyset}(-1)^{|T|-k}C_{|T|-1}^{k-1}\mathrm{MIN}(T)\]
+代入$k=1$即为MAX-MIN反演:
+\[\mathrm{MAX}(S)=\sum_{T\subset S, T\neq \emptyset}(-1)^{|T|-1}\mathrm{MIN}(T)\]
+\subsubsection{伍德伯里矩阵不等式}
+$$(A+UCV)^{-1}=A^{-1}-A^{-1}U(C^{-1}+VA^{-1}U)^{-1}VA^{-1}$$
+该等式可以动态维护矩阵的逆, 令$C=[1]$, $U$, $V$分别为$1\times n$和$n\times 1$的向量, 这样可以构造出$UCV$为只有某行或者某列不为0的矩阵, 一次修改复杂度为$O(n^2)$.
+\subsubsection{Sum of Squares}
+$r_k(n)$表示用$k$个平方数组成$n$的方案数. 假设: 
+\[n=2^{a_0}p_1^{2a_1}\cdots p_r^{2a_r}q_1^{b_1}\cdots q_s^{b_s}\]
+其中$p_i\equiv 3 \mod 4$, $q_i\equiv 1 \mod 4$, 那么
+\[r_2(n)=\left\{\begin{aligned}
+& 0 & \text{if any }a_i\text{ is a half-integer}\\
+& 4\prod_1^r(b_i+1) & \text{if all }a_i\text{ are integers}\\
+\end{aligned}\right.\]
+$r_3(n)>0$当且仅当$n$不满足$4^a(8b+7)$的形式 ($a,b$为整数).
+\subsubsection{枚举勾股数 Pythagorean Triple}
+枚举$x^2+y^2=z^2$的三元组: 可令$x=m^2-n^2,y=2mn,z=m^2+n^2$, 枚举$m$和$n$即可$O(n)$枚举勾股数. 判断素勾股数方法: $m,n$至少一个为偶数并且$m,n$互质, 那么$x,y,z$就是素勾股数.
+\subsubsection{四面体体积 Tetrahedron Volume}
+If $U$, $V$, $W$, $u$, $v$, $w$ are lengths of edges of the tetrahedron (first three form a triangle; u opposite to U and so on)
+\[ V = \frac{\sqrt{ 4u^2v^2w^2 - \sum_{cyc}{u^2(v^2+w^2-U^2)^2} + \prod_{cyc}{(v^2+w^2-U^2)} }}{12} \]
+\subsubsection{杨氏矩阵 与 钩子公式}
+满足: 格子$(i,j)$没有元素, 则它右边和上边相邻格子也没有元素; 格子$(i,j)$有元素$a[i][j]$, 则它右边和上边相邻格子要么没有元素, 要么有元素且比$a[i][j]$大.\\
+计数: $F_1=1,F_2=2,F_n=F_{n-1}+(n-1)F_{n-2}$, $F(x)=e^{x+\frac{x^2}{2}}$\\
+钩子公式: 对于给定形状$\lambda$, 不同杨氏矩阵的个数为:
+\[d_\lambda=\frac{n!}{\prod h_\lambda(i,j)}\]
+$h_\lambda(i,j)$表示该格子右边和上边的格子数量加1. 
+
+\subsubsection{常见博弈游戏}
+\begin{multicols}{2}
+%\paragraph{减法游戏}$n$根火柴每次可以拿$a_i$根, 最后一个拿的人获胜. 
+%\paragraph{Ferguson游戏}两个盒子, 一个有$m$个糖另一个有$n$个糖, 每次走步将一个盒子清空而把另一个盒子的一些糖拿到被清空的盒子中, 使得两个盒子各至少有一颗糖. 到终态(1,1)的人获胜. 
+%\paragraph{动态减法游戏}初始有$n$根火柴, 第一个人可以任意取, 至少$1$根至多$n-1$根, 以后每个人至少拿一根, 但拿的火柴数不能超过上一次拿的火柴数.
+\paragraph{Nim-K游戏}$n$堆石子轮流拿, 每次最多可以拿k堆石子, 谁走最后一步输。结论: 把每一堆石子的sg值(即石子数量)二进制分解,先手必败当且仅当每一位二进制位上1的个数是(k+1)的倍数. 
+\paragraph{Anti-Nim游戏}$n$堆石子轮流拿, 谁走最后一步输。结论: 先手胜当且仅当1. 所有堆石子数都为1且游戏的SG值为0 (即有偶数个孤单堆-每堆只有1个石子数) 2. 存在某堆石子数大于1且游戏的SG值不为0.
+\paragraph{斐波那契博弈}有一堆物品, 两人轮流取物品, 先手最少取一个, 至多无上限, 但不能把物品取完, 之后每次取的物品数不能超过上一次取的物品数的二倍且至少为一件, 取走最后一件物品的人获胜. 结论: 先手胜当且仅当物品数$n$不是斐波那契数. 
+\paragraph{威佐夫博弈}有两堆石子, 博弈双方每次可以取一堆石子中的任意个, 不能不取, 或者取两堆石子中的相同个. 先取完者赢. 结论: 求出两堆石子$A$和$B$的差值$C$, 如果$\left\lfloor C*\frac{\sqrt{5}+1}{2}\right\rfloor=min(A,B)$那么后手赢, 否则先手赢. 
+\paragraph{约瑟夫环}$n$ 个人 $0,\dots,n-1$, 令 $f_{i,m}$ 为 $i$ 个人报 $m$ 的胜利者, 则 $f_{1,m}=0,f_{i,m}=(f_{i-1,m}+m)\bmod i$. 
+\paragraph{阶梯Nim} 在一个阶梯上, 每次选一个台阶上任意个式子移到下一个台阶上, 不可移动者输. 结论: SG值等于奇数层台阶上石子数的异或和. 对于树形结构也适用, 奇数层节点上所有石子数异或起来即可.
+\paragraph{图上博弈} 给定无向图, 先手从某点开始走, 只能走相邻且未走过的点, 无法移动者输. 对该图求最大匹配, 若某个点不一定在最大匹配中则先手必败, 否则先手必胜.
+\end{multicols}
+\input{src/tbr/最大最小定理求纳什均衡点.tex}
+
+\subsubsection{概率相关}
+$D(X)=E(X-E(X))^2=E(X^2)-(E(X))^2,D(X+Y)=D(X)+D(Y)D(aX)=a^2D(X)$
+\[E[x]=\sum_{i=1}^{\infty}P(X\geq i)\]
+$m$ 个数的方差：
+$$\begin{aligned}s^2=&\frac{\sum_{i=1}^m x_i^2}m-\overline x^2\end{aligned}$$
+
+\subsubsection{邻接矩阵行列式的意义}
+在无向图中取若干个环,一种取法权值就是边权的乘积,对行列式的贡献是$(-1)^{\mathrm{even}}$,其中$\mathrm{even}$是偶环的个数.
+
+\subsubsection{Others (某些近似数值公式在这里)}
+\[ S_j = \sum_{k=1}^nx_k^j \]
+\[ h_m = \sum_{1\leq j_1 < \cdots < j_m \leq n} x_{j_1}\cdots x_{j_m},\ \ H_m = \sum_{1\leq j_1 \leq \cdots \leq j_m \leq n} x_{j_1}\cdots x_{j_m} \]
+\[ h_n = \frac{1}{n}\sum_{k=1}^n(-1)^{k+1}S_kh_{n-k} \]
+\[ H_n = \frac{1}{n}\sum_{k=1}^nS_kH_{n-k} \]
+\[ \sum_{k=0}^nkc^k = \frac{nc^{n+2}-(n+1)c^{n+1}+c}{(c-1)^2} \]
+\[ \sum_{i=1}^n\frac 1n\approx\ln\left(n + \frac 1 2\right) + \frac{1}{24(n+0.5)^2}+\Gamma,(\Gamma\approx0.5772156649015328606065)\]
+\[ n! = \sqrt{2\pi n}(\frac{n}{e})^n(1+\frac{1}{12n}+\frac{1}{288n^2}+O(\frac{1}{n^3})) \]
+\[ \begin{aligned}
+ &\max{\{x_a-x_b, y_a-y_b, z_a-z_b\}} - \min{\{x_a-x_b, y_a-y_b, z_a-z_b\}} \\
+=& \frac{1}{2}\sum_{cyc}\left| (x_a-y_a)-(x_b-y_b) \right|
+\end{aligned} \]
+\[ (a+b)(b+c)(c+a) = \frac{(a+b+c)^3 - a^3 - b^3 - c^3}{3} \]
+\[ a^3+b^3=(a+b)(a^2-ab+b^2),a^3-b^3=(a-b)(a^2+ab+b^2) \]
+$n\bmod 2=1:$
+\[ a^n+b^n=(a+b)(a^{n-1}-a^{n-2}b+a^{n-3}b^2-...-ab^{n-2}+b^{n-1})\]
+划分问题: $n$个$k-1$维向量最多把$k$维空间分为$\sum_{i=0}^{k}C_n^i$份.
+\end{small}
