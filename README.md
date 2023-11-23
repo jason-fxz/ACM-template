@@ -36,3 +36,8 @@ Cover font: [Gill Sans](tools/Gill-Sans-Font-Family.zip)
 - [x] Math / Polynomial 多项式：hhd
 - Math / GameTheory 博弈论：zjb
 - Miscellany 杂项：
+
+- [x] 线段树合并 / 分裂
+- [x] 珂朵莉树
+- [ ] Meissel–Lehmer
+- [ ] Pollard Rho
