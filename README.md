@@ -39,5 +39,5 @@ Cover font: [Gill Sans](tools/Gill-Sans-Font-Family.zip)
 
 - [x] 线段树合并 / 分裂
 - [x] 珂朵莉树
-- [ ] Meissel–Lehmer
-- [ ] Pollard Rho
+- [x] Meissel–Lehmer
+- [x] Pollard Rho
